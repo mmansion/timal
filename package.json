@@ -1,18 +1,32 @@
 {
   "name": "timal",
   "version": "1.0.0",
-  "description": "A simple timeline application",
-  "main": "index.html",
+  "description": "A media-rich timeline application built with Node.js and minimal dependencies",
+  "main": "src/server.js",
   "scripts": {
-    "build-css": "sass styles.scss styles.css --watch",
-    "build": "sass styles.scss styles.css",
-    "start": "sass styles.scss styles.css && python -m http.server 8000",
-    "dev": "sass styles.scss styles.css --watch & python -m http.server 8000"
+    "build-css": "sass public/styles.scss public/styles.css",
+    "build-css:watch": "sass public/styles.scss public/styles.css --watch",
+    "build": "npm run build-css",
+    "dev": "node src/server.js",
+    "dev:watch": "npm run build-css:watch & nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "setup-db": "node -e \"const Database = require('./db/database'); new Database().initialize().then(() => console.log('Database setup complete')).catch(console.error)\""
   },
-  "keywords": ["timeline", "sass", "javascript"],
+  "keywords": ["timeline", "sass", "javascript", "nodejs", "micro-saas"],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.450.0",
+    "@aws-sdk/s3-request-presigner": "^3.450.0",
+    "sharp": "^0.32.6",
+    "sqlite3": "^5.1.6",
+    "dotenv": "^16.3.1"
+  },
   "devDependencies": {
-    "sass": "^1.69.0"
+    "sass": "^1.69.0",
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
