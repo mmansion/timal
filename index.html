@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timal - Timeline</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="timeline-title">My Timeline</h1>
+        
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="add-entry-section">
+                <div class="input-group">
+                    <input type="date" id="entryDate" class="date-input">
+                    <input type="text" id="entryText" class="text-input" placeholder="Add a note...">
+                    <button id="addEntry" class="add-btn">Add</button>
+                </div>
+            </div>
+            
+            <div class="timeline-entries" id="timelineEntries">
+                <!-- Timeline entries will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
